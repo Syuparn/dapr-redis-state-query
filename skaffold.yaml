@@ -10,6 +10,9 @@ deploy:
       - name: redis
         repo: https://charts.bitnami.com/bitnami
         remoteChart: redis
+        # NOTE: state query requires RediSearch and RedisJSON
+        valuesFiles:
+          - redis_values.yaml
   kubectl:
     manifests:
       - k8s/*.yaml

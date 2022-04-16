@@ -13,5 +13,39 @@ spec:
     secretKeyRef:
       name: redis
       key: redis-password
+  - name: queryIndexes
+    value: |
+      [
+        {
+          "name": "helloIndx",
+          "indexes": [
+            {
+              "key": "msg",
+              "type": "TEXT"
+            }
+          ]
+        },
+        {
+          "name": "personIndx",
+          "indexes": [
+            {
+              "key": "age",
+              "type": "NUMERIC"
+            },
+            {
+              "key": "name.first",
+              "type": "TEXT"
+            },
+            {
+              "key": "name.last",
+              "type": "TEXT"
+            },
+            {
+              "key": "friends[0]",
+              "type": "TEXT"
+            }
+          ]
+        }
+      ]
 auth:
   secretStore: kubernetes
